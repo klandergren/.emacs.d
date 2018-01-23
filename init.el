@@ -66,3 +66,7 @@
 
 ;; why does this need to come after?
 (load-theme 'solarized-dark)
+
+
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
