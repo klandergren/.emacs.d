@@ -44,6 +44,11 @@
 (toggle-scroll-bar -1)
 (add-hook 'prog-mode-hook #'linum-mode)
 
+;; window movement
+(global-set-key (kbd "M-s-<left>") 'windmove-left)
+(global-set-key (kbd "M-s-<right>") 'windmove-right)
+(global-set-key (kbd "M-s-<up>") 'windmove-up)
+(global-set-key (kbd "M-s-<down>") 'windmove-down)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
