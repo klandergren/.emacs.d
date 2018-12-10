@@ -50,6 +50,10 @@
 (global-set-key (kbd "M-s-<up>") 'windmove-up)
 (global-set-key (kbd "M-s-<down>") 'windmove-down)
 
+;; save desktop
+(setq desktop-path '("~/.emacs.d/.backups"))
+(desktop-save-mode 1)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
