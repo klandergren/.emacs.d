@@ -1,2 +1,5 @@
 .backups/
 auto-save-list/
+cacert.pem
+elpa/
+eshell/
