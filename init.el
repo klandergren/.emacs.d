@@ -25,6 +25,9 @@
    kept-old-versions 2
    version-control t)       ; use versioned backups
 
+;; disable lock files (prefixed with '#' and '.')
+(setq create-lockfiles nil) 
+
 ;; allows for full-screen open from spotlight when another application
 ;; is already full screen
 (sleep-for 0 50)
