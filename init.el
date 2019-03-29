@@ -93,3 +93,5 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'typopunct)
 (add-hook 'mhtml-mode-hook 'typopunct-mode)
+(add-to-list 'typopunct-mode-exeptions-alist 
+             '(mhtml-mode . typopunct-point-in-xml-tag-p))
