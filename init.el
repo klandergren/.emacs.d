@@ -79,7 +79,6 @@
 ;; why does this need to come after?
 (load-theme 'solarized-dark)
 
-
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
@@ -87,3 +86,10 @@
 
 ;; disable bell
 (setq ring-bell-function 'ignore)
+
+;; authoring
+(global-set-key (kbd "M-_") (kbd "—")) ; em dash
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(require 'typopunct)
+(add-hook 'mhtml-mode-hook 'typopunct-mode)
