@@ -68,7 +68,9 @@
  '(gnutls-trustfiles
    (quote
     ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/klandergren/.emacs.d/cacert.pem")))
- '(package-selected-packages (quote (magit enh-ruby-mode solarized-theme))))
+ '(package-selected-packages
+   (quote
+    (swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -90,8 +92,38 @@
 ;; authoring
 (global-set-key (kbd "M-_") (kbd "—")) ; em dash
 
+;; curly quotes
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'typopunct)
-(add-hook 'mhtml-mode-hook 'typopunct-mode)
+(add-hook 'web-mode-hook 'typopunct-mode)
 (add-to-list 'typopunct-mode-exeptions-alist 
-             '(mhtml-mode . typopunct-point-in-xml-tag-p))
+             '(web-mode . typopunct-point-in-xml-tag-p))
+
+;; spell check
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(setq ispell-program-name "/usr/local/bin/ispell")
+(setq ispell-local-dictionary "english")
+(set-default 'ispell-skip-html t)
+
+(add-hook 'yaml-mode-hook
+	  '(lambda ()
+	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+;; web-mode for HTML and CSS. http://web-mode.org/
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+
+;; web-mode customizations
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-enable-auto-indentation nil) ;; prevents indent on yank, which screws up YAML
+  (setq-default indent-tabs-mode nil)
+)
+(add-hook 'web-mode-hook 'my-web-mode-hook)
+(setq web-mode-extra-snippets
+      ;; nil is the templating engine web-mode expects. in this case normal operation.
+      '((nil . (("section" . "<section>\n<h2>|</h2>\n</section>")
+                ("list" . "<ul>\n<li>|</li>\n</ul>")
+                     ))))
