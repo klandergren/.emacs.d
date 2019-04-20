@@ -126,4 +126,7 @@
       ;; nil is the templating engine web-mode expects. in this case normal operation.
       '((nil . (("section" . "<section>\n<h2>|</h2>\n</section>")
                 ("list" . "<ul>\n<li>|</li>\n</ul>")
+                ("2-cols" . "<tr>\n<td>|</td>\n<td></td>\n</tr>")
+                ("3-cols" . "<tr>\n<td>|</td>\n<td></td>\n<td></td>\n</tr>")
+                ("code" . "<pre><code>|</code></pre>")
                      ))))
