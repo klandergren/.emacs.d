@@ -109,6 +109,7 @@
 (add-hook 'yaml-mode-hook
 	  '(lambda ()
 	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+(add-hook 'yaml-mode-hook #'linum-mode)
 
 ;; web-mode for HTML and CSS. http://web-mode.org/
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
@@ -130,3 +131,10 @@
                 ("3-cols" . "<tr>\n<td>|</td>\n<td></td>\n<td></td>\n</tr>")
                 ("code" . "<pre><code>|</code></pre>")
                      ))))
+
+;; jekyll specific
+(defun toggle-between-web-mode-and-yaml-mode ()
+  (interactive)
+  (cond ((eq major-mode 'web-mode) (yaml-mode))
+        ((eq major-mode 'yaml-mode) (web-mode))))
+(global-set-key (kbd "C-c m") 'toggle-between-web-mode-and-yaml-mode)
