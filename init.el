@@ -54,8 +54,8 @@
 (global-set-key (kbd "M-s-<down>") 'windmove-down)
 
 ;; save desktop
-(setq desktop-path '("~/.emacs.d/.backups"))
-(desktop-save-mode 1)
+;; (setq desktop-path '("~/.emacs.d/.backups"))
+;; (desktop-save-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -70,7 +70,7 @@
     ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/klandergren/.emacs.d/cacert.pem")))
  '(package-selected-packages
    (quote
-    (swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
+    (yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -109,6 +109,9 @@
 (add-hook 'yaml-mode-hook
 	  '(lambda ()
 	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+(add-hook 'yaml-mode-hook
+	  '(lambda ()
+	     (define-key yaml-mode-map (kbd "<backtab>") 'yaml-electric-backspace)))
 (add-hook 'yaml-mode-hook #'linum-mode)
 
 ;; web-mode for HTML and CSS. http://web-mode.org/
