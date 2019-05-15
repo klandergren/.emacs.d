@@ -53,6 +53,10 @@
 (global-set-key (kbd "M-s-<up>") 'windmove-up)
 (global-set-key (kbd "M-s-<down>") 'windmove-down)
 
+;; buffer movement
+(global-set-key (kbd "s-<left>") 'previous-buffer)
+(global-set-key (kbd "s-<right>") 'next-buffer)
+
 ;; save desktop
 ;; (setq desktop-path '("~/.emacs.d/.backups"))
 ;; (desktop-save-mode 1)
