@@ -70,7 +70,7 @@
     ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/klandergren/.emacs.d/cacert.pem")))
  '(package-selected-packages
    (quote
-    (yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
+    (flx-ido flx projectile yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -141,3 +141,23 @@
   (cond ((eq major-mode 'web-mode) (yaml-mode))
         ((eq major-mode 'yaml-mode) (web-mode))))
 (global-set-key (kbd "C-c m") 'toggle-between-web-mode-and-yaml-mode)
+
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; flx-ido
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
+
+;; projectile for code project utilities
+(projectile-mode +1)
+(setq projectile-project-search-path '("~/Projects/"))
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "s-f") 'projectile-find-file)
