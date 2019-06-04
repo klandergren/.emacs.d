@@ -1,5 +1,10 @@
+.autosave
 .backups/
 auto-save-list/
 cacert.pem
 elpa/
 eshell/
+ido.last
+projectile-bookmarks.eld
+projectile.cache
+snippets/

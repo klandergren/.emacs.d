@@ -1,5 +1,3 @@
-;; TODO: make gui / terminal guarded init behavior
-
 ;; startup
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -25,8 +23,12 @@
    kept-old-versions 2
    version-control t)       ; use versioned backups
 
-;; disable lock files (prefixed with '#' and '.')
-(setq create-lockfiles nil) 
+;;; autosave
+(defvar autosave-dir (expand-file-name "~/.emacs.d/.autosave/"))
+(setq auto-save-list-file-prefix autosave-dir)
+(setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
+
+(setq create-lockfiles nil)
 
 ;; allows for full-screen open from spotlight when another application
 ;; is already full screen
