@@ -150,6 +150,10 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+(setq yas-prompt-functions '(
+                             yas-ido-prompt
+                             yas-x-prompt))
+
 ;; flx-ido
 (require 'flx-ido)
 (ido-mode 1)
@@ -165,3 +169,4 @@
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "s-f") 'projectile-find-file)
+(define-key projectile-mode-map (kbd "s-g") 'projectile-grep)
