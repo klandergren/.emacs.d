@@ -76,7 +76,7 @@
     ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/klandergren/.emacs.d/cacert.pem")))
  '(package-selected-packages
    (quote
-    (flx-ido flx projectile yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
+    (command-log-mode flx-ido flx projectile yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -172,3 +172,12 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "s-f") 'projectile-find-file)
 (define-key projectile-mode-map (kbd "s-g") 'projectile-grep)
+
+;; command-log-mode
+(require 'command-log-mode)
+(setq command-log-mode-window-size 80
+      command-log-mode-is-global t)
+(global-command-log-mode 1)
+;; hack. creates *command-log* so commands are recorded
+(clm/open-command-log-buffer)
+(clm/close-command-log-buffer)
