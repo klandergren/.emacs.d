@@ -181,3 +181,6 @@
 ;; hack. creates *command-log* so commands are recorded
 (clm/open-command-log-buffer)
 (clm/close-command-log-buffer)
+
+;; swift-mode
+(setq swift-mode:basic-offset 2)
