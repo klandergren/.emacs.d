@@ -156,6 +156,8 @@
                              yas-ido-prompt
                              yas-x-prompt))
 
+(setq yas-indent-line 'fixed)
+
 ;; flx-ido
 (require 'flx-ido)
 (ido-mode 1)
