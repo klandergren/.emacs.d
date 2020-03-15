@@ -151,6 +151,7 @@
                 ("kbd-right-arrow" . "<kbd class=\"key\">→</kbd>")
                 ("kbd-up-arrow" . "<kbd class=\"key\">↑</kbd>")
                 ("kbd-down-arrow" . "<kbd class=\"key\">↓</kbd>")
+                ("kbd-space" . "<kbd class=\"key\">SPACE</kbd>")
                 ("list" . "<ul>\n<li>|</li>\n</ul>")
                 ("2-cols" . "<tr>\n<td>|</td>\n<td></td>\n</tr>")
                 ("3-cols" . "<tr>\n<td>|</td>\n<td></td>\n<td></td>\n</tr>")
