@@ -70,13 +70,13 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+    ("2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(gnutls-trustfiles
    (quote
     ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/klandergren/.emacs.d/cacert.pem")))
  '(package-selected-packages
    (quote
-    (auto-dim-other-buffers command-log-mode flx-ido flx projectile yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
+    (command-log-mode flx-ido flx projectile yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -85,7 +85,7 @@
  )
 
 ;; why does this need to come after?
-(load-theme 'solarized-dark)
+(load-theme 'solarized-dark t)
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -207,7 +207,5 @@
 ;; swift-mode
 (setq swift-mode:basic-offset 2)
 
-;; auto-dim-other-buffers-mode
-(add-hook 'after-init-hook (lambda ()
-  (when (fboundp 'auto-dim-other-buffers-mode)
-    (auto-dim-other-buffers-mode t))))
+;; highlight the line of the cursor in the active buffer
+(global-hl-line-mode 1)
