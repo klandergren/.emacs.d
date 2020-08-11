@@ -1,14 +1,23 @@
-;; startup
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+;; https://emacs.stackexchange.com/questions/5552/emacs-on-android-org-mode-error-wrong-type-argument-stringp-require-t
+(defun load-history-filename-element (file-regexp)
+  "Get the first elt of `load-history' whose car matches FILE-REGEXP.
+        Return nil if there isn't one."
+  (let* ((loads load-history)
+         (load-elt (and loads (car loads))))
+    (save-match-data
+      (while (and loads
+                  (or (null (car load-elt))
+                      (not (and (stringp (car load-elt)) ; new condition
+                                (string-match file-regexp (car load-elt))))))
+        (setq loads (cdr loads)
+              load-elt (and loads (car loads)))))
+    load-elt))
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
 (setq package-archive-priorities '(("melpa" . 10) ("gnu" . 0)))
 
+(package-initialize)
 
 (setq
  inhibit-startup-screen t)
