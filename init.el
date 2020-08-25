@@ -19,8 +19,7 @@
 
 (package-initialize)
 
-(setq
- inhibit-startup-screen t)
+(setq inhibit-startup-screen t)
 
 ;; backups
 (setq
