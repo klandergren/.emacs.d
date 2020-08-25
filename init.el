@@ -152,6 +152,7 @@
                 ("kbd-control" . "<kbd class=\"key\">⌃ Control</kbd>")
                 ("kbd-down-arrow" . "<kbd class=\"key\">↓</kbd>")
                 ("kbd-enter" . "<kbd class=\"key\">↵ Enter</kbd>")
+                ("kbd-esc" . "<kbd class=\"key\">⎋ Esc</kbd>")
                 ("kbd-key" . "<kbd class=\"key\">|</kbd>")
                 ("kbd-left-arrow" . "<kbd class=\"key\">←</kbd>")
                 ("kbd-meta" . "<kbd class=\"key\">⌥ Option</kbd>")
