@@ -230,3 +230,4 @@
 (require 'ls-lisp)
 (setq ls-lisp-use-insert-directory-program nil) ;; use emulated ls-lisp.el with dired
 (setq ls-lisp-dirs-first t)
+(put 'dired-find-alternate-file 'disabled nil)
