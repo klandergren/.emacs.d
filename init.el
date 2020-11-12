@@ -125,18 +125,28 @@
 	     (define-key yaml-mode-map (kbd "<backtab>") 'yaml-electric-backspace)))
 (add-hook 'yaml-mode-hook #'linum-mode)
 
-;; web-mode for HTML and CSS. http://web-mode.org/
+;; web-mode customizations
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
 
-;; web-mode customizations
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
   (setq web-mode-enable-auto-indentation nil) ;; prevents indent on yank, which screws up YAML
   (setq-default indent-tabs-mode nil)
 )
 (add-hook 'web-mode-hook 'my-web-mode-hook)
+
+;; via https://emacs.stackexchange.com/a/20055
+(add-hook 'web-mode-hook
+      (lambda ()
+        ;; short circuit js mode and just do everything in jsx-mode
+        (if (equal web-mode-content-type "javascript")
+            (web-mode-set-content-type "jsx")
+          (message "now set to: %s" web-mode-content-type))))
+
 (setq web-mode-extra-snippets
       ;; nil is the templating engine web-mode expects. in this case normal operation.
       '((nil . (("section" . "<section>\n<h2>|</h2>\n</section>")
