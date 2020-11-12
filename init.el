@@ -81,7 +81,7 @@
  '(gnutls-trustfiles
    '("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/Users/klandergren/.emacs.d/cacert.pem"))
  '(package-selected-packages
-   '(go-mode command-log-mode flx-ido flx projectile yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme)))
+   '(json-mode go-mode command-log-mode flx-ido flx projectile yasnippet swift-mode web-mode markdown-mode yaml-mode magit enh-ruby-mode solarized-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
